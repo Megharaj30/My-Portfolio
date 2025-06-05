@@ -5,13 +5,18 @@ import {
   SiHtml5, SiCss3, SiPhp, SiReact, SiPandas, SiNumpy,
   SiFlask, SiTailwindcss
 } from 'react-icons/si';
+import { BiLogoJava } from 'react-icons/bi';
+import { GiCircuitry, GiNetworkBars } from 'react-icons/gi'; // For DSA & OOP icons
 
 const categories = [
   {
     title: 'Languages & Fundamentals',
     skills: [
-      { name: 'C++ (DSA & OOP)', icon: <SiCplusplus size={28} color="#004482" /> },
+      { name: 'C++', icon: <SiCplusplus size={28} color="#004482" /> },
       { name: 'Python', icon: <SiPython size={28} color="#3472A6" /> },
+      { name: 'Java', icon: <BiLogoJava size={28} color="#ED8B00" /> },
+      { name: 'Data Structures & Algorithms (DSA)', icon: <GiNetworkBars size={28} color="#34d399" /> },
+      { name: 'Object Oriented Programming (OOP)', icon: <GiCircuitry size={28} color="#60a5fa" /> },
     ],
   },
   {
@@ -27,7 +32,7 @@ const categories = [
     ],
   },
   {
-    title: 'Data Science & Database ',
+    title: 'Data Science & Database',
     skills: [
       { name: 'MySQL', icon: <SiMysql size={28} color="#00758F" /> },
       { name: 'MongoDB', icon: <SiMongodb size={28} color="#4DB33D" /> },
