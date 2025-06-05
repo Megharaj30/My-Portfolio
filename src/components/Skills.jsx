@@ -44,7 +44,7 @@ const categories = [
 
 function Skills() {
   return (
-    <section className="bg-white dark:bg-[#1e293b] text-black dark:text-white py-20 px-6 md:px-20">
+    <section  id="skills" className="bg-white dark:bg-[#1e293b] text-black dark:text-white py-20 px-6 md:px-20">
       <div className="max-w-6xl mx-auto">
         <motion.h2
           className="text-4xl font-bold mb-12 text-center"
