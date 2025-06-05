@@ -6,7 +6,7 @@ import {
   SiFlask, SiTailwindcss
 } from 'react-icons/si';
 import { BiLogoJava } from 'react-icons/bi';
-import { GiCircuitry, GiNetworkBars } from 'react-icons/gi'; // For DSA & OOP icons
+import { GiCircuitry, GiNetworkBars } from 'react-icons/gi';
 
 const categories = [
   {
@@ -44,33 +44,33 @@ const categories = [
 
 function Skills() {
   return (
-    <section id="skills" className="py-20 px-6 md:px-20 bg-[#1e293b] text-white">
+    <section className="bg-white dark:bg-[#1e293b] text-black dark:text-white py-20 px-6 md:px-20">
       <div className="max-w-6xl mx-auto">
         <motion.h2
           className="text-4xl font-bold mb-12 text-center"
           initial={{ opacity: 0, y: -20 }}
           whileInView={{ opacity: 1, y: 0 }}
         >
-           My Skills
+          My Skills
         </motion.h2>
 
         <div className="grid md:grid-cols-3 gap-10">
           {categories.map((category, index) => (
             <motion.div
               key={index}
-              className="bg-white/10 border border-white/10 backdrop-blur-lg rounded-2xl p-6 shadow-md hover:shadow-cyan-500/30 transition-all"
+              className="bg-gray-100 dark:bg-white/10 border border-white/10 backdrop-blur-lg rounded-2xl p-6 shadow-md hover:shadow-cyan-500/30 transition-all"
               initial={{ opacity: 0, y: 40 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ delay: index * 0.2 }}
             >
-              <h3 className="text-2xl font-semibold mb-6 text-cyan-300 text-center">
+              <h3 className="text-2xl font-semibold mb-6 text-cyan-700 dark:text-cyan-300 text-center">
                 {category.title}
               </h3>
               <div className="grid grid-cols-2 gap-4">
                 {category.skills.map((skill, i) => (
                   <div
                     key={i}
-                    className="flex items-center gap-3 p-2 bg-white/5 rounded-lg hover:bg-white/10 transition"
+                    className="flex items-center gap-3 p-2 bg-white/5 dark:bg-white/10 rounded-lg hover:bg-gray-200 dark:hover:bg-white/20 transition text-black dark:text-white"
                   >
                     {skill.icon}
                     <span className="text-sm">{skill.name}</span>
