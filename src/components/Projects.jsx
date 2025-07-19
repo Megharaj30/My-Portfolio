@@ -1,5 +1,4 @@
 import React from 'react';
-import Tilt from 'react-parallax-tilt';
 import { motion } from 'framer-motion';
 
 const projects = [
@@ -18,49 +17,22 @@ const projects = [
     github: "https://github.com/Megharaj30",
   },
   {
-    title: "Movie Recommender System",
+    title: "Flight Price Prediction Model",
     description:
-      "Suggests top 30 similar movies using TF-IDF & cosine similarity based on genres, cast, and crew.",
+      "Flask web app integrating ML model to predict flight prices. Achieved high R² score on large dataset.",
     tech: ["Python", "Flask", "Sklearn"],
     github: "https://github.com/Megharaj30",
   },
 ];
 
-const ProjectCard = ({ title, description, tech, github, index }) => {
-  return (
-    <Tilt glareEnable={true} glareMaxOpacity={0.25} className="w-full">
-      <motion.div
-        initial={{ opacity: 0, y: 40 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        transition={{ delay: index * 0.2 }}
-        className="bg-gray-100 dark:bg-white/10 border border-white/10 backdrop-blur-md rounded-2xl p-6 shadow-md hover:shadow-cyan-500/30 transition"
-      >
-        <h3 className="text-black dark:text-white text-xl font-semibold mb-2">{title}</h3>
-        <p className="text-gray-800 dark:text-gray-300 text-sm mb-4">{description}</p>
-        <div className="flex flex-wrap gap-2 mb-4">
-          {tech.map((t, i) => (
-            <span
-              key={i}
-              className="bg-cyan-600 text-white text-xs px-2 py-1 rounded-full"
-            >
-              {t}
-            </span>
-          ))}
-        </div>
-        <a
-          href={github}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="text-cyan-600 dark:text-cyan-400 text-sm hover:underline"
-        >
-          GitHub
-        </a>
-      </motion.div>
-    </Tilt>
-  );
-};
+// Unique color and hover effect per project title
+const titleColorVariants = [
+  'text-fuchsia-600 group-hover:text-orange-500',
+  'text-teal-500 group-hover:text-lime-400',
+  'text-rose-600 group-hover:text-amber-400',
+];
 
-function Projects() {
+const Projects = () => {
   return (
     <section
       id="projects"
@@ -68,21 +40,54 @@ function Projects() {
     >
       <div className="max-w-6xl mx-auto">
         <motion.h2
-          className="text-4xl font-bold mb-8 text-center"
+          className="text-4xl font-bold mb-12 text-center text-transparent bg-clip-text bg-gradient-to-r from-cyan-500 to-blue-500 hover:from-pink-500 hover:to-yellow-500 transition-all duration-500"
           initial={{ opacity: 0, y: -20 }}
           whileInView={{ opacity: 1, y: 0 }}
         >
-          My Projects
+          Projects
         </motion.h2>
 
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-10">
           {projects.map((project, index) => (
-            <ProjectCard key={index} index={index} {...project} />
+            <motion.div
+              key={index}
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ delay: index * 0.2 }}
+              className="bg-white/90 dark:bg-white/5 border border-white/10 backdrop-blur-md rounded-2xl p-6 shadow-md hover:scale-[1.015] hover:shadow-cyan-500/40 transition-all duration-300 group"
+            >
+              <h3
+                className={`text-xl font-semibold mb-2 transition group-hover:scale-[1.02] ${titleColorVariants[index % titleColorVariants.length]}`}
+              >
+                {project.title}
+              </h3>
+              <p className="text-gray-700 dark:text-gray-300 text-sm mb-4">
+                {project.description}
+              </p>
+              <div className="flex flex-wrap gap-2 mb-4">
+                {project.tech.map((t, i) => (
+                  <span
+                    key={i}
+                    className="bg-cyan-600 text-white text-xs px-3 py-1 rounded-full font-medium"
+                  >
+                    {t}
+                  </span>
+                ))}
+              </div>
+              <a
+                href={project.github}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-cyan-600 dark:text-cyan-400 text-sm hover:underline"
+              >
+                GitHub
+              </a>
+            </motion.div>
           ))}
         </div>
       </div>
     </section>
   );
-}
+};
 
 export default Projects;

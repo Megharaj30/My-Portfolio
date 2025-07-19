@@ -1,6 +1,7 @@
 import { motion } from 'framer-motion';
 import { FaArrowRight } from 'react-icons/fa';
 import { Link } from 'react-scroll';
+import { Typewriter } from 'react-simple-typewriter';
 
 function Hero() {
   return (
@@ -22,32 +23,45 @@ function Hero() {
         </span>
       </motion.h1>
 
+      {/* 👇 Updated font size and deleteSpeed */}
       <motion.p
-        className="text-md sm:text-lg md:text-xl max-w-3xl mt-6 text-center 
-                   text-gray-600 dark:text-gray-300 transition"
-        initial={{ opacity: 0, y: 30 }}
+        className="text-xl sm:text-2xl mt-10 text-center font-semibold 
+                   bg-gradient-to-r from-cyan-500 via-purple-500 to-pink-500 
+                   bg-clip-text text-transparent dark:from-cyan-400 dark:via-indigo-400 dark:to-pink-400"
+        initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
-        transition={{ delay: 0.6, duration: 1 }}
+        transition={{ delay: 0.6, duration: 0.8 }}
       >
-        I craft intelligent solutions with clean code. From building fast, responsive web apps
-        to training smart machine learning models — I merge logic with creativity.
+        <Typewriter
+          words={[
+            'I am a Software Developer.',
+            'I craft intelligent solutions with clean code.',
+            'I am open for Internships and Full-time roles.'
+          ]}
+          loop={0}
+          cursor
+          cursorStyle="_"
+          typeSpeed={70}
+          deleteSpeed={35}  
+          delaySpeed={1000}
+        />
       </motion.p>
 
       <motion.div
         className="mt-10"
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
-        transition={{ delay: 1.2 }}
+        transition={{ delay: 1.5 }}
       >
         <Link
-          to="projects"
+          to="about"
           smooth={true}
           duration={500}
           offset={-70}
           className="inline-flex items-center gap-2 px-6 py-3 bg-cyan-500 hover:bg-cyan-600 
                      transition rounded-full text-white font-semibold shadow-lg cursor-pointer"
         >
-          View My Work <FaArrowRight />
+          About Me <FaArrowRight />
         </Link>
       </motion.div>
     </section>

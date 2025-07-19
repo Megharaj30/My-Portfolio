@@ -3,10 +3,15 @@ import { motion } from 'framer-motion';
 import {
   SiPython, SiCplusplus, SiMysql, SiMongodb, SiJavascript,
   SiHtml5, SiCss3, SiPhp, SiReact, SiPandas, SiNumpy,
-  SiFlask, SiTailwindcss
+  SiFlask, SiNodedotjs, SiGit, SiGithub,
+  SiDocker
 } from 'react-icons/si';
 import { BiLogoJava } from 'react-icons/bi';
 import { GiCircuitry, GiNetworkBars } from 'react-icons/gi';
+import { GoServer, GoSync } from "react-icons/go";
+import { TbApi } from "react-icons/tb";
+import { GrDatabase } from "react-icons/gr";
+
 
 const categories = [
   {
@@ -15,8 +20,9 @@ const categories = [
       { name: 'C++', icon: <SiCplusplus size={28} color="#004482" /> },
       { name: 'Python', icon: <SiPython size={28} color="#3472A6" /> },
       { name: 'Java', icon: <BiLogoJava size={28} color="#ED8B00" /> },
-      { name: 'Data Structures & Algorithms (DSA)', icon: <GiNetworkBars size={28} color="#34d399" /> },
-      { name: 'Object Oriented Programming (OOP)', icon: <GiCircuitry size={28} color="#60a5fa" /> },
+      { name: 'DSA', icon: <GiNetworkBars size={28} color="#34d399" /> },
+      { name: 'OOP', icon: <GiCircuitry size={28} color="#60a5fa" /> },
+      { name: 'OS', icon: <GoServer size={28} color="#f59e0b" /> },
     ],
   },
   {
@@ -26,9 +32,10 @@ const categories = [
       { name: 'CSS3', icon: <SiCss3 size={28} color="#1572B6" /> },
       { name: 'JavaScript', icon: <SiJavascript size={28} color="#F7DF1E" /> },
       { name: 'React.js', icon: <SiReact size={28} color="#61DAFB" /> },
-      { name: 'Tailwind CSS', icon: <SiTailwindcss size={28} color="#38BDF8" /> },
+      { name: 'Node.js', icon: <SiNodedotjs size={28} color="#68A063" /> },
       { name: 'PHP', icon: <SiPhp size={28} color="#8892BF" /> },
       { name: 'Flask', icon: <SiFlask size={28} color="#000000" /> },
+      { name: 'REST APIs', icon: <TbApi size={28} color="#f87171" /> },
     ],
   },
   {
@@ -36,8 +43,18 @@ const categories = [
     skills: [
       { name: 'MySQL', icon: <SiMysql size={28} color="#00758F" /> },
       { name: 'MongoDB', icon: <SiMongodb size={28} color="#4DB33D" /> },
+      { name: 'DBMS', icon: <GrDatabase size={28} color="#eab308" /> },
       { name: 'Pandas', icon: <SiPandas size={28} color="#150458" /> },
       { name: 'NumPy', icon: <SiNumpy size={28} color="#013243" /> },
+    ],
+  },
+  {
+    title: 'Tools & Platforms',
+    skills: [
+      { name: 'Git', icon: <SiGit size={28} color="#F05032" /> },
+      { name: 'Github', icon: <SiGithub size={28} color="#181717" /> },
+      { name: 'Docker', icon: <SiDocker size={28} color="#2496ED" /> },
+      { name: 'CI/CD', icon: <GoSync size={28} color="#8b5cf6" /> },
     ],
   },
 ];
@@ -51,10 +68,10 @@ function Skills() {
           initial={{ opacity: 0, y: -20 }}
           whileInView={{ opacity: 1, y: 0 }}
         >
-          My Skills
+          Skills
         </motion.h2>
 
-        <div className="grid md:grid-cols-3 gap-10">
+        <div className="grid md:grid-cols-4 gap-10">
           {categories.map((category, index) => (
             <motion.div
               key={index}
